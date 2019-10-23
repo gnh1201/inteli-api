@@ -22,12 +22,12 @@ if(!check_function_exists("shodan_search_by_host")) {
     }
 }
 
-if(!check_function_exists("virustotal_get_report")) {
+if(!check_function_exists("vtapi_get_report")) {
     function vtapi_get_report($resource, $apikey="") {
         $response = false;
 
         $config = get_config();
-        $apikey = get_value_in_array("virustotal_apikey", $config, "");
+        $apikey = get_value_in_array("vtapi_apikey", $config, "");
 
         if(loadHelper("webpagetool")) {
             $response = get_web_json(
