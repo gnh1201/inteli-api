@@ -23,7 +23,7 @@ if(!check_function_exists("shodan_search_by_host")) {
 }
 
 if(!check_function_exists("virustotal_get_report")) {
-    function vtapi_get_file_report($resource, $apikey="") {
+    function vtapi_get_report($resource, $apikey="") {
         $response = false;
 
         $config = get_config();
