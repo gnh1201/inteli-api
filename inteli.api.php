@@ -41,7 +41,3 @@ if(!check_function_exists("virustotal_get_report")) {
         return $response;
     }
 }
-~                                                                                                                                                                                                                                                                              
-~                                                                                                                                                                                                                                                                              
-~                                                                                                                                                                                                                                                                              
-~               
