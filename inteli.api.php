@@ -11,8 +11,11 @@ if(!check_function_exists("shodan_search_by_host")) {
         $apikey = get_value_in_array("shodan_apikey", $config, "");
 
         if(loadHelper("webpagetool")) {
+            $bind = array(
+                "ip" => $host
+            );
             $response = get_web_json(
-                sprintf("https://api.shodan.io/shodan/host/%s", $host), "get.cache", array(
+                get_web_binded_url("https://api.shodan.io/shodan/host/:ip", $bind), "get.cache", array(
                     "api" => $apikey
                 )
             );
