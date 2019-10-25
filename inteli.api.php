@@ -44,3 +44,22 @@ if(!check_function_exists("vtapi_get_report")) {
         return $response;
     }
 }
+
+if(!check_function_exists("openalpr_recognize")) {
+    function openalpr_recognize($image, $country="us") {
+        $response = false;
+
+        $config = get_config();
+        $secretkey = get_value_in_array("openalpr_secretkey", $config, "");
+
+        $response = get_web_json(get_web_build_qs("https://api.openalpr.com/v2/recognize", array(
+            "recognize_vehicle" => 1,
+            "country" => $country,
+            "secret_key" => $secretkey,
+        )), "post.cmd.cache", array(
+            "image" => "@" . $image,
+        ));
+
+        return $response;
+    }
+}
